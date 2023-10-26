@@ -1,4 +1,4 @@
-import requests
+from django import requests
 
 url = "https://climate-change-live452.p.rapidapi.com/news"
 headers = {
