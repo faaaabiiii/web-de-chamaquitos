@@ -61,3 +61,10 @@ def signin(request):
         else:
             login(request, user)
             return redirect('inicio')
+@login_required
+def afectados(request):
+    return render(request, 'afectados.html')
+
+@login_required
+def paisajes(request):
+    return render(request, 'paisajes.html')
