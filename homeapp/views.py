@@ -40,7 +40,22 @@ def signup(request):
 
 @login_required    #no cualquera lo puede hacceder entonces por eso se le coloca esa @, es para proteger el citio 
 def inicio(request):
-    return render(request, 'inicio.html')
+    if request.method == 'GET':
+        return render(request, 'inicio.html', {
+            'form': Noticia1
+        })
+    else:
+        try:
+            noticia = Noticia2.objects.create(titulo=request.POST["titulo"], descripcion=request.POST["descripcion"], url=request.POST["url"], url_img=request.POST["url_img"], likes=0, shared=0)
+            noticia.save()
+            return redirect('inicio')
+        except IntegrityError:
+            return render(request, "inicio.html",{
+                "form": Noticia1,
+                "error": "Noticia ya existe o algo así"
+            }
+            )
+
 
 @login_required
 def signout(request):

@@ -7,12 +7,46 @@
 <main class="container py-5">
     <section class="card card-body">
 
-        <h1 class="display-1 text-center">Inicio</h1>
+        <h1 class="display-1 text-center">Tu perfil</h1>
     
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur debitis similique officiis perferendis hic, corrupti beatae. Quibusdam vel nobis a ipsam magni debitis neque, atque minima esse quia, ipsa, quos quas totam recusandae sunt. Assumenda, obcaecati reiciendis? Pariatur neque saepe dolores magni similique. Ducimus a corrupti vitae, recusandae veritatis atque.
+            Lore ipsum dolor sit amet, consectetur adipisicing elit. Consequatur debitis similique officiis perferendis hic, corrupti beatae. Quibusdam vel nobis a ipsam magni debitis neque, atque minima esse quia, ipsa, quos quas totam recusandae sunt. Assumenda, obcaecati reiciendis? Pariatur neque saepe dolores magni similique. Ducimus a corrupti vitae, recusandae veritatis atque.
         </p>
     </section>
+    <br>
+    <br>
+    <div id="general">
+        <div id="publicarnoticia">
+            <form action="/inicio/" method="POST" class="card card-body">
+                <h1 class="text-center">Subir una noticia</h1>
+            
+                {{error}}
+                {% csrf_token %}
+            
+                <div class="mb-3">
+                    <label for="">Título de la noticia</label>
+                    <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Escribe el título de la noticia">
+                </div>
+                <div class="mb-3">
+                    <label for="">Descripción de la noticia</label>
+                    <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Escribe una breve descripción de la noticia (máx. 200 carácteres)">
+                </div>
+                <div class="mb-3">
+                    <label for="">URL</label>
+                    <input type="text" name="url" id="url" class="form-control" placeholder="Ejemplo: https://elpais.com/ciencia/las-cientificas-responden/2023-11-06/toda-la-materia-que-existe-se-formo-en-el-big-bang-o-se-sigue-creando-materia-nueva.html">
+                </div>
+                <div class="mb-3">
+                    <label for="">URL de imagen a mostrar</label>
+                    <input type="text" name="url_img" id="url_img" class="form-control" placeholder="Ejemplo: https://imagenes.elpais.com/resizer/8bgFrtjmPnUcEn1QR7RUPv7XglY=/1200x0/filters:focal(511x289:521x299)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/YIQADS65WZHKDGWFOMBJPJSKW4.jpg">
+                </div>
+            
+                <button class="btn btn-primary">
+                    Enviar
+                </button>
+            
+            </form>
+        </div>
+    </div>
 </main>
 
 {% endblock %}
