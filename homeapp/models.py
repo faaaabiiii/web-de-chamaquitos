@@ -4,6 +4,7 @@ class Noticia2(models.Model):
     title = models.CharField(max_length=50)
     likes = models.IntegerField()
     shared = models.IntegerField()
+    links = models.URLField()
     
     def __str__(self):
         return self.title

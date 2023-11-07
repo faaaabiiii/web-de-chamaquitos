@@ -104,4 +104,5 @@ def afectados(request):
                       {'form': Paisaje1()})
     
 def comunidad(request):
-    return render(request, 'comunidad.html')
+    notiuser = Noticia2.objects.all()
+    return render(request, 'comunidad.html',{'notiuser': notiuser })
