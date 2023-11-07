@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError 
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
+from .forms import Noticia1, Paisaje1
+from .models import Noticia2, Paisaje2
 
 # Create your views here.
 
@@ -61,10 +63,45 @@ def signin(request):
         else:
             login(request, user)
             return redirect('inicio')
-@login_required
-def afectados(request):
-    return render(request, 'afectados.html')
-
+        
 @login_required
 def paisajes(request):
-    return render(request, 'paisajes.html')
+    if request.method == 'POST':
+        shared = Paisaje2.objects.get()
+        shared.shared += 1
+        shared.save()
+        return render(request, 'paisajes.html', 
+                      {'form': Paisaje1()})
+    
+    else:
+        return render(request, 'paisajes.html', 
+                      {'form': Paisaje1()})
+
+@login_required
+def news(request):
+    if request.method == 'POST':
+        shared = Noticia2.objects.get()
+        shared.shared += 1
+        shared.save()
+        return render(request, 'news.html', 
+                      {'form': Noticia1()})
+    
+    else:
+        return render(request, 'news.html', 
+                      {'form': Noticia1()})
+
+@login_required
+def afectados(request):
+    if request.method == 'POST':
+        shared = Paisaje2.objects.get()
+        shared.shared += 1
+        shared.save()
+        return render(request, 'paisajes.html', 
+                      {'form': Paisaje1()})
+    
+    else:
+        return render(request, 'paisajes.html', 
+                      {'form': Paisaje1()})
+    
+def comunidad(request):
+    return render(request, 'comunidad.html')

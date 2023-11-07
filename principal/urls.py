@@ -27,4 +27,6 @@ urlpatterns = [
     path("signin/", views.signin, name="signin"),
     path("paisajes/", views.paisajes,),
     path("afectados/",views.afectados,),
+    path("news/", views.news),
+    path("comunidad/", views.comunidad),
 ]
