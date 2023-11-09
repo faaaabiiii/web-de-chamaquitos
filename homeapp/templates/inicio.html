@@ -18,7 +18,7 @@
     <div id="general">
         <div id="publicarnoticia">
             <form action="/inicio/" method="POST" class="card card-body">
-                <h1 class="text-center">Subir una noticia</h1>
+                <h1 class="text-center">Publicar una noticia</h1>
             
                 {{error}}
                 {% csrf_token %}
@@ -33,11 +33,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="url">URL</label>
-                    <input type="text" name="url" id="url" class="form-control" placeholder="Ejemplo: https://elpais.com/ciencia/las-cientificas-responden/2023-11-06/toda-la-materia-que-existe-se-formo-en-el-big-bang-o-se-sigue-creando-materia-nueva.html">
+                    <input type="text" name="url" id="url" class="form-control" placeholder="URL">
                 </div>
                 <div class="mb-3">
                     <label for="url_img">URL de imagen a mostrar</label>
-                    <input type="text" name="url_img" id="url_img" class="form-control" placeholder="Ejemplo: https://imagenes.elpais.com/resizer/8bgFrtjmPnUcEn1QR7RUPv7XglY=/1200x0/filters:focal(511x289:521x299)/cloudfront-eu-central-1.images.arcpublishing.com/prisa/YIQADS65WZHKDGWFOMBJPJSKW4.jpg">
+                    <input type="text" name="url_img" id="url_img" class="form-control" placeholder="URL">
                 </div>
             
                 <button class="btn btn-primary">
