@@ -12,7 +12,6 @@ from .models import *
 def home(request):
     return render(request, "home.html")
 
-
 def signup(request):
 
     if request.method == "GET":
@@ -49,12 +48,10 @@ def inicio(request):
     }
     return render(request, "inicio.html", context)
 
-
 @login_required
 def signout(request):
     logout(request)
     return redirect('home') 
-
 
 def signin(request):
     if request.method == 'GET':
@@ -114,3 +111,6 @@ def afectados(request):
 def comunidad(request):
     notiuser = Noticias.objects.all()
     return render(request, 'comunidad.html',{'notiuser': notiuser })
+
+def nosotros(request):
+    return render(request, "nosotros.html")
