@@ -7,7 +7,7 @@
 <main class="container py-5">
     <section class="card card-body">
 
-        <h1 class="display-1 text-center">Perfil del usuario</h1>
+        <h1 class="display text-center">Perfil del usuario</h1>
     
         <p>
             Lore ipsum dolor sit amet, consectetur adipisicing elit. Consequatur debitis similique officiis perferendis hic, corrupti beatae. Quibusdam vel nobis a ipsam magni debitis neque, atque minima esse quia, ipsa, quos quas totam recusandae sunt. Assumenda, obcaecati reiciendis? Pariatur neque saepe dolores magni similique. Ducimus a corrupti vitae, recusandae veritatis atque.
@@ -18,25 +18,26 @@
     <div id="general">
         <div id="publicarnoticia">
             <form action="/inicio/" method="POST" class="card card-body">
-                <h1 class="text-center">Publicar una noticia</h1>
+                <h1 class="display text-center">Publicar una noticia</h1>
             
                 {{error}}
                 {% csrf_token %}
+                <p>Aquí podrás subir noticias relacionadas con el cambio climático para que sean publicadas en la pestaña Comunidad. Deben contener un título, descripción, enlace a la noticia y un enlace de la imagen a mostrar.</p>
             
                 <div class="mb-3">
-                    <label for="titulo">Título de la noticia</label>
+                    <label for="titulo"><b>Título de la noticia</b></label>
                     <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Escribe el título de la noticia">
                 </div>
                 <div class="mb-3">
-                    <label for="descripcion">Descripción de la noticia</label>
+                    <label for="descripcion"><b>Descripción de la noticia</b></label>
                     <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Escribe una breve descripción de la noticia (máx. 200 carácteres)">
                 </div>
                 <div class="mb-3">
-                    <label for="url">URL</label>
+                    <label for="url"><b>URL</b></label>
                     <input type="text" name="url" id="url" class="form-control" placeholder="URL">
                 </div>
                 <div class="mb-3">
-                    <label for="url_img">URL de imagen a mostrar</label>
+                    <label for="url_img"><b>URL de imagen a mostrar</b></label>
                     <input type="text" name="url_img" id="url_img" class="form-control" placeholder="URL">
                 </div>
             

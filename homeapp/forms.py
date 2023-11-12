@@ -1,13 +1,16 @@
 from django import forms
+from .models import *
 
-class Noticia1(forms.Form):
-    titulo =  forms.CharField(max_length=50, required=True)
-    descripcion = forms.CharField(max_length=200, required=True)
-    url = forms.URLField(required=True)
-    url_img = forms.URLField(required=True)
-    likes = forms.IntegerField(required=False)
-    shared = forms.IntegerField(required=False)
-
+class PublicarNoticia(forms.ModelForm):
+    class Meta:
+        model = Noticias
+        fields = [
+            "titulo", 
+            "descripcion", 
+            "url", 
+            "url_img",
+            ]
+        
 class Paisaje1(forms.Form):
     nombre =  forms.CharField(max_length=50, required=False)
     likes = forms.IntegerField(required=False)

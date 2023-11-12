@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError 
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from .forms import Noticia1, Paisaje1
-from .models import Noticia2, Paisaje2
+from .forms import *
+from .models import *
 
 # Create your views here.
 
@@ -40,21 +40,14 @@ def signup(request):
 
 @login_required    #no cualquera lo puede hacceder entonces por eso se le coloca esa @, es para proteger el citio 
 def inicio(request):
-    if request.method == 'GET':
-        return render(request, 'inicio.html', {
-            'form': Noticia1
-        })
-    else:
-        try:
-            noticia = Noticia2.objects.create(titulo=request.POST["titulo"], descripcion=request.POST["descripcion"], url=request.POST["url"], url_img=request.POST["url_img"], likes=0, shared=0)
-            noticia.save()
-            return redirect('inicio')
-        except IntegrityError:
-            return render(request, "inicio.html",{
-                "form": Noticia1,
-                "error": "Noticia ya existe o algo así"
-            }
-            )
+    form = PublicarNoticia(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = PublicarNoticia()
+    context = {
+        'form': form
+    }
+    return render(request, "inicio.html", context)
 
 
 @login_required
@@ -95,15 +88,15 @@ def paisajes(request):
 @login_required
 def news(request):
     if request.method == 'POST':
-        shared = Noticia2.objects.get()
+        shared = Noticias.objects.get()
         shared.shared += 1
         shared.save()
         return render(request, 'news.html', 
-                      {'form': Noticia1()})
+                      {'form': PublicarNoticia()})
     
     else:
         return render(request, 'news.html', 
-                      {'form': Noticia1()})
+                      {'form': PublicarNoticia()})
 
 @login_required
 def afectados(request):
@@ -119,5 +112,5 @@ def afectados(request):
                       {'form': Paisaje1()})
     
 def comunidad(request):
-    notiuser = Noticia2.objects.all()
+    notiuser = Noticias.objects.all()
     return render(request, 'comunidad.html',{'notiuser': notiuser })
