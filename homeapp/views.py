@@ -12,7 +12,6 @@ from .models import Noticia2, Paisaje2
 def home(request):
     return render(request, "home.html")
 
-
 def signup(request):
 
     if request.method == "GET":
@@ -56,12 +55,10 @@ def inicio(request):
             }
             )
 
-
 @login_required
 def signout(request):
     logout(request)
     return redirect('home') 
-
 
 def signin(request):
     if request.method == 'GET':
@@ -121,3 +118,6 @@ def afectados(request):
 def comunidad(request):
     notiuser = Noticia2.objects.all()
     return render(request, 'comunidad.html',{'notiuser': notiuser })
+
+def nosotrso(request):
+    return render(request, "nosotros.html")
