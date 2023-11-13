@@ -24,7 +24,13 @@
             <li>
                 <h1>{{noticia.titulo}}</h1>
                 <p>{{noticia.descripcion}}</p>
-                <p>{{noticia.user.username}}</p>
+                <a href="{{noticia.url}}">Link de noticia</a>
+                <br>
+                <a href="{{noticia.url_img}}">Link de foto</a>
+                <br>
+                <br>
+                <p>{{noticia.usuario}}</p>
+                
             </li>
             {% endfor %}
         </ul>

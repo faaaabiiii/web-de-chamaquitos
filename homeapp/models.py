@@ -8,8 +8,7 @@ class Noticias(models.Model):
     url_img = models.URLField(blank=False)
     likes = models.IntegerField(null=True, blank=True)
     shared = models.IntegerField(null=True, blank=True)
-    user = models.ForeignKey(User, on_delete= models.CASCADE)
-
+    usuario = models.CharField(max_length=50, blank=False)
 
     def __str__(self):
         return self.titulo

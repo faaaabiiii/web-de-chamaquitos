@@ -41,7 +41,9 @@ def signup(request):
 def inicio(request):
     form = PublicarNoticia(request.POST or None)
     if form.is_valid():
-        form.save()
+        instancia = form.save(commit=False)
+        instancia.usuario = request.user
+        instancia.save()
         form = PublicarNoticia()
         return redirect('comunidad')
     context = {
