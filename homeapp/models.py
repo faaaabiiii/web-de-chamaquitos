@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+
 
 class Noticias(models.Model):
     titulo = models.CharField(max_length=50, blank=False)

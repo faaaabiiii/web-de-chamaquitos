@@ -119,4 +119,5 @@ def nosotros(request):
     return render(request, "nosotros.html")
 
 def Mipost(request):
-    return render(request, "mipost.html")
+    post = Noticias.objects.all()
+    return render(request, "mipost.html", {'post': post}) 
