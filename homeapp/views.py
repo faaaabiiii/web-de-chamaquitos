@@ -117,3 +117,6 @@ def comunidad(request):
 
 def nosotros(request):
     return render(request, "nosotros.html")
+
+def Mipost(request):
+    return render(request, "mipost.html")

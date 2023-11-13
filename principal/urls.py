@@ -30,4 +30,5 @@ urlpatterns = [
     path("news/", views.news),
     path("comunidad/", views.comunidad, name='comunidad'),
     path("nosotros/", views.nosotros),
+    path("mipost/", views.Mipost),
 ]
