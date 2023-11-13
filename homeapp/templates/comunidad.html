@@ -15,13 +15,18 @@
     </section>
 </main> -->
 
-<ul>
-    {% for noti in notiuser %}
-    <li>
-        <h1>{{noti.title}}</h1>
-        <p>{{noti.links}}</p>
-    </li>
-    {% endfor %}
-</ul>
-
-{% endblock %}
+<br>
+<br>
+<main class="container py-5">
+    <section class="card card-body">
+        <ul>
+            {% for noticia in noti %}
+            <li>
+                <h1>{{noticia.titulo}}</h1>
+                <p>{{noticia.descripcion}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock %} 

@@ -43,6 +43,7 @@ def inicio(request):
     if form.is_valid():
         form.save()
         form = PublicarNoticia()
+        return redirect('comunidad')
     context = {
         'form': form
     }
@@ -109,8 +110,8 @@ def afectados(request):
                       {'form': Paisaje1()})
     
 def comunidad(request):
-    notiuser = Noticias.objects.all()
-    return render(request, 'comunidad.html',{'notiuser': notiuser })
+    noticias = Noticias.objects.all()
+    return render(request, 'comunidad.html',{'noti': noticias })
 
 def nosotros(request):
     return render(request, "nosotros.html")

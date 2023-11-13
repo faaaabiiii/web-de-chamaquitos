@@ -28,6 +28,6 @@ urlpatterns = [
     path("paisajes/", views.paisajes,),
     path("afectados/",views.afectados,),
     path("news/", views.news),
-    path("comunidad/", views.comunidad),
+    path("comunidad/", views.comunidad, name='comunidad'),
     path("nosotros/", views.nosotros),
 ]
