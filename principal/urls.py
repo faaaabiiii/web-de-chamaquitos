@@ -29,5 +29,5 @@ urlpatterns = [
     path("afectados/",views.afectados,),
     path("news/", views.news),
     path("comunidad/", views.comunidad),
-    path("nosotros/", views.nosotrso),
+    path("nosotros/", views.nosotros),
 ]
