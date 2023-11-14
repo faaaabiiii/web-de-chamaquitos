@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError 
+from django.db import OperationalError
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import *
@@ -37,7 +38,7 @@ def signup(request):
             "error": "Password do not match"
             })
 
-@login_required    #no cualquera lo puede hacceder entonces por eso se le coloca esa @, es para proteger el citio 
+@login_required
 def inicio(request):
     form = PublicarNoticia(request.POST or None)
     if form.is_valid():
@@ -120,5 +121,9 @@ def nosotros(request):
 
 def Mipost(request):
     user = request.user
-    post = Noticias.objects.filter(usuario=user).values()
-    return render(request, "mipost.html", {'post': post}) 
+    try:
+        post = Noticias.objects.filter(usuario=user).values()
+        return render(request, "mipost.html", {'post': post})
+    except OperationalError:
+        return render(request, "mipost.html", {'post': None, 'error': "* No has publicado una noticia aún."})
+

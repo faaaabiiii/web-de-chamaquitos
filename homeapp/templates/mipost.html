@@ -14,19 +14,22 @@
 <main class="container py-5">
     <section class="card card-body">
         <ul>
-            {% for posts in post %}
-            <li>
-                <h1>{{posts.titulo}}</h1>
-                <p>{{posts.descripcion}}</p>
-                <a href="{{posts.url}}">Link de noticia</a>
-                <br>
-                <a href="{{posts.url_img}}">Link de foto</a>
-                <br>
-                <br> 
-                <p>{{noticia.usuario}}</p>
-                
-            </li>
-            {% endfor %}
+            {{error}}
+            {% if post != None %}
+                {% for posts in post %}
+                    <li>
+                        <h1>{{posts.titulo}}</h1>
+                        <p>{{posts.descripcion}}</p>
+                        <a href="{{posts.url}}">Link de noticia</a>
+                        <br>
+                        <a href="{{posts.url_img}}">Link de foto</a>
+                        <br>
+                        <br> 
+                        <p>{{noticia.usuario}}</p>
+                        
+                    </li>
+                {% endfor %}
+            {% endif %}
         </ul>
     </section>
 </main>
