@@ -166,5 +166,21 @@ def Mipost(request):
         return render(request, "mipost.html", {'post': None, 'error': "* No has publicado una noticia aún."})
 
 def unasola(request, id):
-    una = get_object_or_404(Noticias, pk=id)
-    return render(request, "una.html", {'una': una})
+    if request.method == 'GET':
+        una = get_object_or_404(Noticias, pk=id)
+        form = PublicarNoticia(instance=una)
+        return render(request, "una.html", {'una': una, 'form': form})
+    else:
+        try:
+            una = get_object_or_404(Noticias, pk=id)
+            form = PublicarNoticia(request.POST, instance=una)
+            form.save() 
+            return redirect('mipost')
+        except ValueError:
+            return render(request, "una.html", {'una': una, 'form': form, 'error': "Error updating post"})
+        
+def delete(request, id):
+    task = get_object_or_404(Noticias, pk= id)
+    if request.method == "post":
+        task.delete()
+        return redirect('mipost') 

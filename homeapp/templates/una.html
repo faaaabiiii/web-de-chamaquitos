@@ -7,6 +7,32 @@
 <main class="container py-5">
     <section class="card card-body">
     <h1>{{una.titulo}}</h1>
+
+    {{error}}
+
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button>
+            Update
+        </button>
+    </form>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        <button>
+            Delete
+        </button>
+    </form>
+    {% for no in noti %}
+    <form action="{% url 'delete' task.id %}" method="post">
+        {% csrf_token %}
+        <button>
+            Delete
+        </button>
+    </form>
+    {% endfor %}
+
     </section>
 </main>
 {%endblock%}
