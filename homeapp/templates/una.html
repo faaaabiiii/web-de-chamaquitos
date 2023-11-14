@@ -18,20 +18,14 @@
         </button>
     </form>
     <br>
-    <form method="post">
+        
+    <form action="{% url 'delete' una.id %}" method="post">
         {% csrf_token %}
         <button>
             Delete
         </button>
     </form>
-    {% for no in noti %}
-    <form action="{% url 'delete' task.id %}" method="post">
-        {% csrf_token %}
-        <button>
-            Delete
-        </button>
-    </form>
-    {% endfor %}
+    
 
     </section>
 </main>

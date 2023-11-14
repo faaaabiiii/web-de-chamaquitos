@@ -180,7 +180,7 @@ def unasola(request, id):
             return render(request, "una.html", {'una': una, 'form': form, 'error': "Error updating post"})
         
 def delete(request, id):
-    task = get_object_or_404(Noticias, pk= id)
-    if request.method == "post":
-        task.delete()
+    noti = get_object_or_404(Noticias, pk= id)
+    if request.method == "POST":
+        noti.delete()
         return redirect('mipost') 
