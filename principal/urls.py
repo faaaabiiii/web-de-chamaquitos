@@ -35,4 +35,5 @@ urlpatterns = [
     path("mipost/", views.Mipost, name='mipost'),
     path("mipost/<int:id>/", views.unasola, name='unasola'),
     path("mipost/<int:id>/delete", views.delete, name='delete'),
+    path("comunidad/agregar_like/<int:id>/<str:user>", views.agregar_like, name='agregar_like')
 ]

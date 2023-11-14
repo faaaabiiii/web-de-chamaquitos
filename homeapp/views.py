@@ -107,7 +107,7 @@ def signin(request):
             })
         else:
             login(request, user)
-            return redirect('inicio')
+            return redirect('comunidad')
         
 @login_required
 @login_required
@@ -151,8 +151,21 @@ def afectados(request):
     return render(request, 'paisajes.html')
     
 def comunidad(request):
+    user = request.user
     noticias = Noticias.objects.all()
-    return render(request, 'comunidad.html',{'noti': noticias })
+    return render(request, 'comunidad.html',{'noti': noticias , 'user': user})
+
+def agregar_like(request, id, user):
+    noticia = Noticias.objects.get(id=id)
+    if user not in noticia.laikeros:
+        noticia.likes += 1
+        noticia.laikeros.append(user) 
+        noticia.save()
+    else:
+        noticia.likes -= 1
+        noticia.laikeros.remove(user)
+        noticia.save()
+    return redirect('/comunidad')
 
 def nosotros(request):
     return render(request, "nosotros.html")

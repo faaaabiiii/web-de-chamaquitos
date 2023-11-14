@@ -30,7 +30,17 @@
                 <br> 
                 <br>
                 <p>{{noticia.usuario}}</p>
-                
+                <form action="{% url 'agregar_like' noticia.id user %}" method="post">
+                    {% csrf_token %}
+                    {% if user in noticia.laikeros %}
+                        <button>Dislike</button>
+                    {% else %}
+                        <button>like</button>
+                    {% endif %}
+
+                    
+                    <small>{{noticia.likes}}</small>
+                </form>
             </li>
             {% endfor %}
         </ul>

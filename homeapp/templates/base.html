@@ -17,7 +17,10 @@
             <!-- <img src="img/title.png" alt="foto name pag" width="20px"> -->
             <!-- <link rel="stylesheet" href="img/title.png"> -->
             <!-- <div style="background-image:url( 'img/title.png')"></div> -->
-            <a class="navbar-brand" href="/inicio/">Earthlove</a>
+            <a class="navbar-brand" href="/">Earthlove
+                {% load static %}
+            <img src="{% static 'img/arbolito.png' %}" alt="arbolito" height="20px" width="20px">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
