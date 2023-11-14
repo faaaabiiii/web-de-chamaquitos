@@ -18,15 +18,16 @@
             {% if post != None %}
                 {% for posts in post %}
                     <li>
-                        <h1>{{posts.titulo}}</h1>
-                        <p>{{posts.descripcion}}</p>
-                        <a href="{{posts.url}}">Link de noticia</a>
-                        <br>
-                        <a href="{{posts.url_img}}">Link de foto</a>
-                        <br>
-                        <br> 
-                        <p>{{noticia.usuario}}</p>
+                        <a href="{% url 'unasola' posts.id %}">
+                            <h1>{{posts.titulo}}</h1>
+                            <p>{{posts.descripcion}}</p>
+                            <a href="{{posts.url}}">Link de noticia</a>
+                            <br>
+                            <a href="{{posts.url_img}}">Link de foto</a>
+                            <br>
+                            <p>{{noticia.usuario}}</p>
                         
+                        </a>
                     </li>
                 {% endfor %}
             {% endif %}

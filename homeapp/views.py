@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError 
@@ -165,3 +165,6 @@ def Mipost(request):
     except OperationalError:
         return render(request, "mipost.html", {'post': None, 'error': "* No has publicado una noticia aún."})
 
+def unasola(request, id):
+    una = get_object_or_404(Noticias, pk=id)
+    return render(request, "una.html", {'una': una})

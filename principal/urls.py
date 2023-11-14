@@ -33,4 +33,5 @@ urlpatterns = [
     path("comunidad/", views.comunidad, name='comunidad'),
     path("nosotros/", views.nosotros),
     path("mipost/", views.Mipost),
+    path("mipost/<int:id>/", views.unasola, name='unasola'),
 ]
