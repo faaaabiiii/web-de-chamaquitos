@@ -40,18 +40,54 @@ def signup(request):
 
 @login_required
 def inicio(request):
-    form = PublicarNoticia(request.POST or None)
-    if form.is_valid():
-        instancia = form.save(commit=False)
-        instancia.usuario = request.user
-        instancia.save()
-        form = PublicarNoticia()
-        return redirect('comunidad')
-    context = {
-        'form': form
-    }
-    return render(request, "inicio.html", context)
-
+    user = request.user
+    if request.method == "GET":
+        try:
+            mis_noticias = Noticias.objects.filter(usuario=user).values()
+            num_publicaciones = 0
+            for noticia in mis_noticias:
+                num_publicaciones +=1
+            context = {
+                'form': PublicarNoticia,
+                'user': user,
+                'num_publicaciones': num_publicaciones,
+                }
+            return render(request, "inicio.html", context)
+        except OperationalError:
+            context = {
+                'form': PublicarNoticia,
+                'user': user,
+                'num_publicaciones': 0,
+                }
+            return render(request, "inicio.html", context)
+    if request.method == "POST":
+        form = PublicarNoticia(request.POST)
+        if form.is_valid():
+            instancia = form.save(commit=False)
+            instancia.usuario = request.user
+            instancia.save()
+            return redirect('comunidad')
+        else:
+            try:
+                mis_noticias = Noticias.objects.filter(usuario=user).values()
+                num_publicaciones = 0
+                for noticia in mis_noticias:
+                    num_publicaciones +=1
+                context = {
+                    'form': PublicarNoticia,
+                    'user': user,
+                    'num_publicaciones': num_publicaciones,
+                    'error': "(*) Has ingresado datos incorrectos en las casillas, vuelve a intentarlo.",
+                    }
+                return render(request, "inicio.html", context)
+            except OperationalError:
+                context = {
+                    'form': PublicarNoticia,
+                    'user': user,
+                    'num_publicaciones': 0,
+                    'error': "(*) Has ingresado datos incorrectos en las casillas, vuelve a intentarlo.",
+                    }
+                return render(request, "inicio.html", context)
 @login_required
 def signout(request):
     logout(request)
