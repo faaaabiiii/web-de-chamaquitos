@@ -26,12 +26,12 @@
         <div id="publicarnoticia">
             <form action="/inicio/" method="POST" class="card card-body">
                 <h1 class="display text-center">Publicar una noticia</h1>
-            
-                {{error}}<br>
                 {% csrf_token %}
-
-                <br><p>Aquí podrás subir noticias relacionadas con el cambio climático para que sean publicadas en la pestaña Comunidad. Deben contener un título, descripción, enlace a la noticia y un enlace de la imagen a mostrar.</p>
-            
+                <p>Aquí podrás subir noticias relacionadas con el cambio climático para que sean publicadas en la pestaña Comunidad. Deben contener un título, descripción, enlace a la noticia y un enlace de la imagen a mostrar.</p>
+                {% if error %}
+                    {{error}}<br>
+                    <br>
+                {% endif %}
                 <div class="mb-3">
                     <label for="titulo"><b>Título de la noticia</b></label>
                     <input type="text" name="titulo" id="titulo" class="form-control" placeholder="Escribe el título de la noticia" required=True>
