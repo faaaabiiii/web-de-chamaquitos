@@ -13,10 +13,10 @@ class Noticias(models.Model):
     def __str__(self):
         return self.titulo
 
-class Paisaje2(models.Model):
+class Paisajes(models.Model):
+    contador1 = models.IntegerField(default=0)
+    contador2 = models.IntegerField(default=0)
     title = models.CharField(max_length=50)
-    likes = models.IntegerField()
-    shared = models.IntegerField()
 
     def __str__(self):
         return self.title

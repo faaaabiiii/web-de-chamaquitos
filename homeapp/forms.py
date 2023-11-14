@@ -10,8 +10,3 @@ class PublicarNoticia(forms.ModelForm):
             "url", 
             "url_img",
             ]
-        
-class Paisaje1(forms.Form):
-    nombre =  forms.CharField(max_length=50, required=False)
-    likes = forms.IntegerField(required=False)
-    shared = forms.IntegerField(required=False)

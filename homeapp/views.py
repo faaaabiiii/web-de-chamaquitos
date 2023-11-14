@@ -74,17 +74,28 @@ def signin(request):
             return redirect('inicio')
         
 @login_required
-def paisajes(request):
-    if request.method == 'POST':
-        shared = Paisaje2.objects.get()
-        shared.shared += 1
-        shared.save()
-        return render(request, 'paisajes.html', 
-                      {'form': Paisaje1()})
-    
-    else:
-        return render(request, 'paisajes.html', 
-                      {'form': Paisaje1()})
+@login_required
+def mostrar_paisajes(request):
+    # Lógica para mostrar paisajes
+    return render(request, 'paisajes.html')
+
+def mostrar_contadores(request):
+    contadores = Paisajes.objects.get()
+    return render(request, 'paisajes.html', {'contadores': contadores})
+
+def incrementar_contador(request, contador_id):
+    try:
+        contador = Paisajes.objects.get()
+    except Paisajes.DoesNotExist:
+        return render(request, 'error.html', {'error': 'No se encontró el objeto Contador en la base de datos'})
+
+    if contador_id == 1:
+        contador.contador1 += 1
+    elif contador_id == 2:
+        contador.contador2 += 1
+    contador.save()
+
+    return redirect('mostrar_contadores')  # Redirige después de incrementar el contador
 
 @login_required
 def news(request):
@@ -101,16 +112,7 @@ def news(request):
 
 @login_required
 def afectados(request):
-    if request.method == 'POST':
-        shared = Paisaje2.objects.get()
-        shared.shared += 1
-        shared.save()
-        return render(request, 'paisajes.html', 
-                      {'form': Paisaje1()})
-    
-    else:
-        return render(request, 'paisajes.html', 
-                      {'form': Paisaje1()})
+    return render(request, 'paisajes.html')
     
 def comunidad(request):
     noticias = Noticias.objects.all()
