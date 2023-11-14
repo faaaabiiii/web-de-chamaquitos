@@ -8,15 +8,18 @@
     <section class="card card-body">
 
         <h1 class="display text-center">Perfil del usuario</h1>
-    
-        <p>
-            Lore ipsum dolor sit amet, consectetur adipisicing elit. Consequatur debitis similique officiis perferendis hic, corrupti beatae. Quibusdam vel nobis a ipsam magni debitis neque, atque minima esse quia, ipsa, quos quas totam recusandae sunt. Assumenda, obcaecati reiciendis? Pariatur neque saepe dolores magni similique. Ducimus a corrupti vitae, recusandae veritatis atque.
-        </p>
+        <b>Nombre de usuario:</b> {{user}}
+        <b>Número de publicaciones:</b> {{num_publicaciones}}
+        <b>Veces que se han compartido tus noticias:</b> {{compartidos}}
+        <b>Total de 'Me gusta' recibidos:</b> {{total_likes}}
+        <b>Tu noticia con mayor interacción:</b>
     </section>
     <br>
     <a class="btn btn-secondary" href="/mipost/">
-        Mis post
+        Ir a 'Mis noticias'
     </a>
+    <br>
+    
     <br>
     <br>
     <div id="general">
@@ -24,9 +27,10 @@
             <form action="/inicio/" method="POST" class="card card-body">
                 <h1 class="display text-center">Publicar una noticia</h1>
             
-                {{error}}
+                {{error}}<br>
                 {% csrf_token %}
-                <p>Aquí podrás subir noticias relacionadas con el cambio climático para que sean publicadas en la pestaña Comunidad. Deben contener un título, descripción, enlace a la noticia y un enlace de la imagen a mostrar.</p>
+
+                <br><p>Aquí podrás subir noticias relacionadas con el cambio climático para que sean publicadas en la pestaña Comunidad. Deben contener un título, descripción, enlace a la noticia y un enlace de la imagen a mostrar.</p>
             
                 <div class="mb-3">
                     <label for="titulo"><b>Título de la noticia</b></label>
