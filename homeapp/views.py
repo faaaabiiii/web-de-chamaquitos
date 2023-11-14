@@ -44,13 +44,25 @@ def inicio(request):
     if request.method == "GET":
         try:
             mis_noticias = Noticias.objects.filter(usuario=user).values()
+            total_likes = 0
+            total_compartidos = 0
             num_publicaciones = 0
+            top = {'id':0, 'interacciones':0, 'titulo':""}
             for noticia in mis_noticias:
                 num_publicaciones +=1
+                total_likes += noticia['likes']
+                total_compartidos += noticia['shared']
+                if (noticia['likes'] + noticia['shared']) > top['interacciones']:
+                    top['interacciones'] = noticia['likes'] + noticia['shared']
+                    top['id'] = noticia['id']
+                    top['titulo'] = noticia['titulo']
             context = {
                 'form': PublicarNoticia,
                 'user': user,
                 'num_publicaciones': num_publicaciones,
+                'total_likes': total_likes,
+                'total_compartidos': total_compartidos,
+                'top': top,
                 }
             return render(request, "inicio.html", context)
         except OperationalError:
@@ -58,6 +70,7 @@ def inicio(request):
                 'form': PublicarNoticia,
                 'user': user,
                 'num_publicaciones': 0,
+                'total_likes': total_likes,
                 }
             return render(request, "inicio.html", context)
     if request.method == "POST":
