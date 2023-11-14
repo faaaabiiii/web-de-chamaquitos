@@ -119,5 +119,6 @@ def nosotros(request):
     return render(request, "nosotros.html")
 
 def Mipost(request):
-    post = Noticias.objects.all()
+    user = request.user
+    post = Noticias.objects.filter(usuario=user).values()
     return render(request, "mipost.html", {'post': post}) 
