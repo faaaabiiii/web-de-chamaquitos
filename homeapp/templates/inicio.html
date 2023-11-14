@@ -13,14 +13,14 @@
         <p><b>Total de 'Me gusta' recibidos:</b> {{total_likes}}</p>
         {% if top.titulo != "" %}
             {% if top.interacciones > 1 %}
-            <p><b>Tu noticia con mayor interacción:</b> <a href='/mipost/{{top.id}}/'> {{top.titulo}}</a>, {{top.interacciones}} interacciones.</p>
+            <p><b>Tu noticia con más interacciones:</b> <a href='/mipost/{{top.id}}/'> {{top.titulo}}</a>, {{top.interacciones}} interacciones.</p>
             {% else %}
                 {% if top.interacciones == 1 %}
-                <p><b>Tu noticia con mayor interacción:</b> <a href='/mipost/{{top.id}}/'> {{top.titulo}}</a>, {{top.interacciones}} interacción.</p>
+                <p><b>Tu noticia con más interacciones:</b> <a href='/mipost/{{top.id}}/'> {{top.titulo}}</a>, {{top.interacciones}} interacción.</p>
                 {% endif %}
             {% endif %}
         {% else %}
-            <p><b>Tu noticia con mayor interacción:</b> No tienes interacciones en tus noticias.</p>
+            <p><b>Tu noticia con más interacciones:</b> No tienes interacciones en tus noticias.</p>
         {% endif %}
     </section>
     <br>
