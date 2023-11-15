@@ -7,7 +7,7 @@ class Noticias(models.Model):
     url = models.URLField(blank=False)
     url_img = models.URLField(blank=False)
     likes = models.IntegerField(null=False, blank=False, default=0)
-    shared = models.IntegerField(null=True, blank=True)
+    shared = models.IntegerField(null=False, blank=False, default=0)
     usuario = models.CharField(max_length=50, blank=False)
     laikeros = models.JSONField(null=False, blank=False, default=list)
 
