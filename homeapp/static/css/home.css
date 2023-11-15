@@ -1,0 +1,12 @@
+#card{
+    background-color: transparent;
+    border: 0px solid white;
+}
+h1,h3{
+    color:rgb(157, 205, 247);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+p{
+    color:rgb(97, 141, 180);
+    font-family: 'Times New Roman', Times, serif;
+}
