@@ -3,10 +3,17 @@
     border: 0px solid white;
 }
 h1,h3{
-    color:rgb(157, 205, 247);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:rgb(24, 6, 6);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 p{
-    color:rgb(97, 141, 180);
+    color:rgb(86, 92, 97);
     font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+h1{
+    font-size: 50px;
+}
+h1{
+    font-size: 35px;
 }

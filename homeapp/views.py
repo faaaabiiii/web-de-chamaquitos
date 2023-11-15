@@ -115,6 +115,7 @@ def inicio(request):
                     'error': "(*) Has ingresado datos incorrectos en las casillas, vuelve a intentarlo.",
                     }
                 return render(request, "inicio.html", context)
+
 @login_required
 def signout(request):
     logout(request)
@@ -182,6 +183,7 @@ def comunidad(request):
     noticias = Noticias.objects.all()
     return render(request, 'comunidad.html',{'noti': noticias , 'user': user})
 
+@login_required
 def agregar_like(request, id, user):
     noticia = Noticias.objects.get(id=id)
     if user not in noticia.laikeros:
@@ -197,6 +199,7 @@ def agregar_like(request, id, user):
 def nosotros(request):
     return render(request, "nosotros.html")
 
+@login_required
 def Mipost(request):
     user = request.user
     try:
@@ -205,6 +208,7 @@ def Mipost(request):
     except OperationalError:
         return render(request, "mipost.html", {'post': None, 'error': "* No has publicado una noticia aún."})
 
+@login_required
 def unasola(request, id):
     if request.method == 'GET':
         una = get_object_or_404(Noticias, pk=id)
@@ -218,7 +222,8 @@ def unasola(request, id):
             return redirect('mipost')
         except ValueError:
             return render(request, "una.html", {'una': una, 'form': form, 'error': "Error updating post"})
-        
+
+@login_required        
 def delete(request, id):
     noti = get_object_or_404(Noticias, pk= id)
     if request.method == "POST":
