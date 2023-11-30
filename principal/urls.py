@@ -32,8 +32,8 @@ urlpatterns = [
     path("news/", views.news),
     path("comunidad/", views.comunidad, name='comunidad'),
     path("nosotros/", views.nosotros),
-    path("mipost/", views.Mipost, name='mipost'),
-    path("mipost/<int:id>/", views.unasola, name='unasola'),
-    path("mipost/<int:id>/delete", views.delete, name='delete'),
+    path("misnoticias/", views.misnoticias, name='misnoticias'),
+    path("misnoticias/<int:id>/", views.unasola, name='unasola'),
+    path("misnoticias/<int:id>/delete", views.delete, name='delete'),
     path("comunidad/agregar_like/<int:id>/<str:user>", views.agregar_like, name='agregar_like')
 ]

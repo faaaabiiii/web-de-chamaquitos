@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-
-
+{% load static %}
 {% block content %}
 <!-- <br>
 <br>
@@ -14,7 +13,9 @@
         </p>
     </section>
 </main> -->
-
+<head>
+    <link type="text/css" href="{% static 'css/comunidad.css' %}" rel ="stylesheet"/>
+</head>
 <br>
 <br>
 <main class="container py-5">
@@ -30,14 +31,11 @@
             
                 <main class="container py-5">
                     <section class="card card-body">
-                        <h1 class="text-center">{{noticia.titulo}}</h1>
-                        <h6 class="text-center">Descripcion:</h6>
+                        <h1 class="text-center"><a class="text-center" href="{{noticia.url}}">{{noticia.titulo}}</a></h1>
                         <p class="text-center">{{noticia.descripcion}}</p>
-                        <a class="text-center" href="{{noticia.url}}">Link de noticia</a>
-                        
-                        <a class="text-center" href="{{noticia.url_img}}">Link de foto</a>
+                        <img src="{{noticia.url_img}}" class="center"/></a>
                         <br>
-                        <p class="text-center">Por->{{noticia.usuario}}</p>
+                        <p class="text-center">Publicado por {{noticia.usuario}}</p>
                         <form class="text-center" action="{% url 'agregar_like' noticia.id user %}" method="post">
                             {% csrf_token %}
                             {% if user in noticia.laikeros %}

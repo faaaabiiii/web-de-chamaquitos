@@ -7,6 +7,8 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import *
 from .models import *
+import requests
+import json
 
 # Create your views here.
 
@@ -161,18 +163,23 @@ def incrementar_contador(request, contador_id):
 
     return redirect('mostrar_contadores')  # Redirige después de incrementar el contador
 
-@login_required
 def news(request):
-    if request.method == 'POST':
-        shared = Noticias.objects.get()
-        shared.shared += 1
-        shared.save()
-        return render(request, 'news.html', 
-                      {'form': PublicarNoticia()})
-    
-    else:
-        return render(request, 'news.html', 
-                      {'form': PublicarNoticia()})
+    if request.method == 'GET':
+       url = "https://climate-news-feed.p.rapidapi.com/"
+       querystring = {"limit":"50","exclude":"The Guardian"}
+       headers = {
+            "X-RapidAPI-Key": "9acd896290mshd7266af432403dcp12ac41jsn0b84bdd47bfa",
+            "X-RapidAPI-Host": "climate-news-feed.p.rapidapi.com"
+       }
+       response = requests.get(url, headers=headers, params=querystring)
+       news = response.json()
+       context = {
+            'noticias': news
+        }
+       return render(request, "news.html", context)
+        
+
+
 
 @login_required
 def afectados(request):
@@ -200,13 +207,13 @@ def nosotros(request):
     return render(request, "nosotros.html")
 
 @login_required
-def Mipost(request):
+def misnoticias(request):
     user = request.user
     try:
         post = Noticias.objects.filter(usuario=user).values()
-        return render(request, "mipost.html", {'post': post})
+        return render(request, "misnoticias.html", {'post': post})
     except OperationalError:
-        return render(request, "mipost.html", {'post': None, 'error': "* No has publicado una noticia aún."})
+        return render(request, "misnoticias.html", {'post': None, 'error': "* No has publicado una noticia aún."})
 
 @login_required
 def unasola(request, id):
@@ -219,7 +226,7 @@ def unasola(request, id):
             una = get_object_or_404(Noticias, pk=id)
             form = PublicarNoticia(request.POST, instance=una)
             form.save() 
-            return redirect('mipost')
+            return redirect('misnoticias')
         except ValueError:
             return render(request, "una.html", {'una': una, 'form': form, 'error': "Error updating post"})
 
@@ -228,4 +235,4 @@ def delete(request, id):
     noti = get_object_or_404(Noticias, pk= id)
     if request.method == "POST":
         noti.delete()
-        return redirect('mipost') 
+        return redirect('misnoticias') 

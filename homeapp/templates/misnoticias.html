@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 
+{% load static %}
+{% block content %}
 
-{%block content%}
+<head>
+    <link type="text/css" href="{% static 'css/news.css' %}" rel ="stylesheet"/>
+</head>
 <br>
 <br>
 <main class="container py-5">
@@ -21,9 +25,8 @@
                         <a href="{% url 'unasola' posts.id %}">
                             <h1>{{posts.titulo}}</h1>
                             <p>{{posts.descripcion}}</p>
-                            <a href="{{posts.url}}">Link de noticia</a>
                             <br>
-                            <a href="{{posts.url_img}}">Link de foto</a>
+                            <img src="{{posts.url_img}}" class="center"/>
                             <br>
                             <p>{{noticia.usuario}}</p>
                         

@@ -1,3 +1,32 @@
-<h1>noticias</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link type="text/css" href="{% static 'css/news.css' %}" rel ="stylesheet"/>
+</head>
 
-{{%for %}}
+<br>
+<br>
+<main class="container py-5">
+    <section class="card card-body">
+        <h1 class="text-center">Noticias internacionales sobre el cambio climático</h1>
+    </section>
+</main> 
+
+<main class="container py-5">
+    <section class="card card-body">
+        <ul>
+            {% for noticia in noticias.articles %}
+                <main class="container py-5">
+                    <section class="card card-body">
+                        <h2 class="text-center"><a class="text-center" href="{{noticia.url}}">{{noticia.title}}</a></h2>
+                        <p class="text-center"><b>Fuente de la noticia: {{noticia.source}}</b></p>
+                        <br>
+                        <a class="text-center" href="{{noticia.url}}"><img src="{{noticia.thumbnail}}" class="center"/></a>
+                    </section>
+                </main>
+            {% endfor %}
+        </ul>
+    </section>
+</main>
+{% endblock %} 
