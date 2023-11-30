@@ -1,0 +1,61 @@
+@keyframes show {
+    from{
+        opacity: 0;
+        scale: 60%;
+    }
+    to{
+        opacity: 1;
+        scale: 100%;
+    }
+}
+#imgre{
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: show;
+
+    animation-range: entry 25% cover 30%;
+    animation-fill-mode: both;
+}
+#lol1{
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 980px 420px;
+    width: 368px;
+    height: 360px;
+    margin-right: 60px;
+    border-radius: 50%;
+    animation: rotacion 8s infinite;
+    box-shadow: 5px 10px 50px #888;
+    float: right;
+}
+@keyframes rotacion{
+    0%{
+        background-position: 0px 0px;
+    }
+    100%{
+        background-position: -160px 0px;
+    }
+}
+#waos1{
+    width: 100%;
+    height: 963px;
+}
+#botono{
+    margin-right: 50%;
+    margin-left: 50%;
+    margin-top: 90%;
+}
+#parrafo{
+    margin: auto;
+    width: 650;
+    height: 400;
+    float: left;
+}
+#parrafo1{
+    color:rgb(86, 92, 97);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    text-align: center;
+}

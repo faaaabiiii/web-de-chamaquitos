@@ -145,7 +145,7 @@ def mostrar_paisajes(request):
 
 def mostrar_contadores(request):
     contadores = Paisajes.objects.get()
-    return render(request, 'paisajes.html', {'contadores': contadores})
+    return render(request, 'recorridos.html', {'contadores': contadores})
 
 def incrementar_contador(request, contador_id):
     try:

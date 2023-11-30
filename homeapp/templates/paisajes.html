@@ -2,173 +2,140 @@
 
 {% load static %}
 {%block content%}
+<head>
+    <link type="text/css" href="{% static 'css/paisajes.css' %}" rel ="stylesheet"/>
+</head>
 <body>
     <br>
     <br>
     <br>
     <br>
-    <head>
-        <link type="text/css" href="{% static 'css/inicio.css' %}" rel ="stylesheet"/>
-    </head>
+    <br>
+    <div id="xd" class="container">
+        <style>
+            h1,h3{
+                color:rgb(24, 6, 6);
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-size: 50px;
+            }
+        </style>
+        <h1>Bienvenido a nuestra pestaña de recorridos<h1>
+    </div>
+    <div id="lol1" style="background-image: url('{%static 'img/planeta1.png' %}')" class="container-fluid"></div>
+    <div class="container">
+        <style>
+            #xd{
+                color:rgb(86, 92, 97);
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 25px;
+            }
+        </style>
+        <p id="xd">En esta pestaña se encuentra algunos de los lugares que nos llamo más la atención, en particular por las viste que se puede obtener, actualmente tiene una funcionalidad sencilla en la que uno puede ver el lugar y una breve descripción del mismo, en donde al presionar el botón, te redirecciona en google earth al lugar que selecciono, y para volver solo es dar click al boton de ir atras<p>
+    </div>
+    <br>
+    <br>
+    <br>
     <main class="container py-5">
             <div class="row row-cols-1 row-cols-md-2 g-4">
                 <div class="col">
-                    <div class="card">
+                    <div id ="imgre" class="card">
                         <div class="container py-3">
-                            <img src="{% static 'img/machupicchu.gif'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
+                            <img id ="imgre" src="{% static 'img/machupicchu.gif'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Machu Picchu</h5>
+                            <h5 class="card-title">Machu Picchu, Perú.</h5>
                             <p class="card-text">Machu Picchu, antigua ciudad inca, se encuentra en los Andes peruanos. Construida en el siglo XV, destaca por su arquitectura y ubicación a 2,430 metros sobre el nivel del mar. Fue redescubierta en 1911 por Hiram Bingham y es Patrimonio de la Humanidad. Su belleza y misterio la convierten en un ícono turístico.</p>
                             <div class="text-center">
                                 <a class="btn btn-secondary" href="https://earth.google.com/web/search/Machu+Picchu,+Per%c3%ba/@-13.16326361,-72.54514858,2448.26953125a,0d,60y,146.95800059h,77.38072601t,0r/data=CigiJgokCeFTHGQWoUxAEUbjw3WF7T1AGQC23kDpSFRAId28c1MBnyxAIhoKFkdnRm9NeloxV3RIOTA1ellQS2ZqUFEQAg" >
                                 Vamos ahora
                                 </a>
                             </div>
-                            <section>
-                                <form method="post" action="{% url 'incrementar_contador' 1 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Dar Me Gusta: {{ contadores.contador1 }} </button>
-                                </form>
-                                <form method="post" action="{% url 'incrementar_contador' 2 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Compartir: {{ contadores.contador2 }}</button>
-                                </form>
-                            </section>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div id ="imgre" class="card">
                         <div class="container py-3">
-                            <img src="{% static 'img/piramides.gif'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
+                            <img id ="imgre" src="{% static 'img/piramides.gif'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Egipto</h5>
+                            <h5 class="card-title">Piramides de giza, Egipto.</h5>
                             <p class="card-text">Egipto es un país en el norte de África con una rica historia. En la antigüedad, estaba dividido en dos reinos, Alto y Bajo Egipto, hasta que se unificaron alrededor del 3000 a.C. bajo un gobierno monárquico, absolutista y teocrático. Esta unificación marcó el inicio de una de las civilizaciones más antiguas del mundo.</p>
                             <div class="text-center">
                                 <a class="btn btn-secondary" href="https://earth.google.com/web/search/La+Esfinge,+Al+Giza+Desert,+Egipto/@29.97495636,31.13798941,25.59214211a,0d,60y,283.83965701h,90.24682773t,0r/data=Co0BGmMSXQolMHgxNDU4NGY2MmEzYWVhOTc5OjB4YzlkM2YwYTY0MDY2YmRhORn7T6M1q_k9QCHp_vudNyM_QCoiTGEgRXNmaW5nZSwgQWwgR2l6YSBEZXNlcnQsIEVnaXB0bxgBIAEiJgokCYRgSWZuIjvAERA5OCL6IzvAGRee-zLuUVvAIfNnGjdhUlvAIhoKFkVacHE5VGJBaVlNbkR1ZmVhOGk2eFEQAjoDCgEw" >
                                 Vamos ahora
                                 </a>
                             </div>
-                            <section>
-                                <form method="post" action="{% url 'incrementar_contador' 1 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Dar Me Gusta: {{ contadores.contador1 }} </button>
-                                </form>
-                                <form method="post" action="{% url 'incrementar_contador' 2 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Compartir: {{ contadores.contador2 }}</button>
-                                </form>
-                            </section>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div id ="imgre" class="card">
                         <div class="container py-3">
-                            <img src="{% static 'img/machupicchu.jpg'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
+                            <img id ="imgre" src="{% static 'img/b.gif'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Gran Barrera de Coral, Australia</h5>
+                            <p class="card-text">La Gran Barrera de Coral, en Australia, es el arrecife más grande del mundo, abarcando más de 2,300 km. Con una rica biodiversidad marina, enfrenta amenazas como el blanqueo de corales por el cambio climático. Designada Patrimonio de la Humanidad, es un destino clave para el buceo y la conservación marina.</p>
                             <div class="text-center">
-                                <a class="btn btn-secondary" href="https://earth.google.com/web/search/Machu+Picchu,+Per%c3%ba/@-13.16326361,-72.54514858,2448.26953125a,0d,60y,146.95800059h,77.38072601t,0r/data=CigiJgokCeFTHGQWoUxAEUbjw3WF7T1AGQC23kDpSFRAId28c1MBnyxAIhoKFkdnRm9NeloxV3RIOTA1ellQS2ZqUFEQAg" >
+                                <a class="btn btn-secondary" href="https://earth.google.com/web/search/lom+cerca+de+Gran+Barrera+de+Coral,+Australia/@-14.91983323,145.70083617,1.99331643a,0d,60y,190.14663001h,69.98632591t,0r/data=CpgBGm4SaAolMHg2YmRmMTQ0NjgyMmM3MTNiOjB4MTkyYTU3NDEzNjgzM2NkYRlyxLU1fUkywCE0VHvHX3ZiQCotbG9tIGNlcmNhIGRlIEdyYW4gQmFycmVyYSBkZSBDb3JhbCwgQXVzdHJhbGlhGAEgASImCiQJoM6M1HqDNUARos6M1HqDNcAZseuRJhHnSUAhreuRJhHnScAiMAosQUYxUWlwTlRRa2dQWmhJSzRVOVZfd1ZNNVRHRkhVSUJQeWlCbWd4R0IyWWkQBToDCgEw" >
                                 Vamos ahora
                                 </a>
                             </div>
-                            <section>
-                                <form method="post" action="{% url 'incrementar_contador' 1 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Dar Me Gusta: {{ contadores.contador1 }} </button>
-                                </form>
-                                <form method="post" action="{% url 'incrementar_contador' 2 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Compartir: {{ contadores.contador2 }}</button>
-                                </form>
-                            </section>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div id ="imgre" class="card">
                         <div class="container py-3">
-                            <img src="{% static 'img/machupicchu.jpg'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
+                            <img id ="imgre" src="{% static 'img/mb.gif'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Mont Blanc, Francia.</h5>
+                            <p class="card-text">Mont Blanc, la cumbre más alta de los Alpes con 4,808 metros, se encuentra en la frontera de Francia e Italia. Reconocido por desafiantes rutas de ascenso, atrae a alpinistas. Con impresionantes glaciares y paisajes alpinos, es un destino emblemático que ofrece actividades recreativas en sus alrededores.</p>
                             <div class="text-center">
-                                <a class="btn btn-secondary" href="https://earth.google.com/web/search/Machu+Picchu,+Per%c3%ba/@-13.16326361,-72.54514858,2448.26953125a,0d,60y,146.95800059h,77.38072601t,0r/data=CigiJgokCeFTHGQWoUxAEUbjw3WF7T1AGQC23kDpSFRAId28c1MBnyxAIhoKFkdnRm9NeloxV3RIOTA1ellQS2ZqUFEQAg" >
+                                <a class="btn btn-secondary" href="https://earth.google.com/web/search/Mont+Blanc+monta%c3%b1a/@45.83259891,6.86379405,4781.08691406a,0d,60y,120.94758413h,83.39982328t,0r/data=Cn4aVBJOCiUweDQ3ODk0NTlmYjUzNGJlNTE6MHhhOTA4NzI4YzVkY2VjNGMwGcw1Fl6T6kZAIcBHs2jwdRtAKhNNb250IEJsYW5jIG1vbnRhw7FhGAEgASImCiQJ1bpZ9SLuQMARf2KDT_7vQMAZd-apWsfmYkAh2GcaaWHmYkAiGgoWNXNSR09wb2Y4LWFMdHdCV2xXNzRoZxACOgMKATA" >
                                 Vamos ahora
                                 </a>
                             </div>
-                            <section>
-                                <form method="post" action="{% url 'incrementar_contador' 1 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Dar Me Gusta: {{ contadores.contador1 }} </button>
-                                </form>
-                                <form method="post" action="{% url 'incrementar_contador' 2 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Compartir: {{ contadores.contador2 }}</button>
-                                </form>
-                            </section>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div id ="imgre" class="card">
                         <div class="container py-3">
-                            <img src="{% static 'img/machupicchu.jpg'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
+                            <img id ="imgre" src="{% static 'img/cerezos.gif'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Camino de Cerezos, Japón.</h5>
+                            <p class="card-text">Los parques de cerezos en Tokio, como Ueno y Shinjuku Gyoen, son famosos por el hanami durante la temporada de sakura. Con su entorno pintoresco, son destinos populares para disfrutar de picnics y eventos culturales en primavera. Lo cual lo convierte un destino emblematico.</p>
                             <div class="text-center">
-                                <a class="btn btn-secondary" href="https://earth.google.com/web/search/Machu+Picchu,+Per%c3%ba/@-13.16326361,-72.54514858,2448.26953125a,0d,60y,146.95800059h,77.38072601t,0r/data=CigiJgokCeFTHGQWoUxAEUbjw3WF7T1AGQC23kDpSFRAId28c1MBnyxAIhoKFkdnRm9NeloxV3RIOTA1ellQS2ZqUFEQAg" >
+                                <a class="btn btn-secondary" href="https://earth.google.com/web/search/cerezos+de+tokio/@35.68249413,139.71061463,42.31756415a,0d,60y,327.21813442h,91.75298206t,0r/data=CnsaURJLCiUweDYwMTg4Y2MwNzNhODNlMDM6MHg0ZTM4Mjc5ZjVkMTQ4MmM2GfL8szBV10FAIS32TVC5dmFAKhBjZXJlem9zIGRlIHRva2lvGAEgASImCiQJ5XNOjNLuRkARBOaIplLmRkAZDhE54NidG0Ahd-5iwzpLG0AiGgoWalRoSDBGUlAzVjJUdHZqanVHT3dkURACOgMKATA" >
                                 Vamos ahora
                                 </a>
                             </div>
-                            <section>
-                                <form method="post" action="{% url 'incrementar_contador' 1 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Dar Me Gusta: {{ contadores.contador1 }} </button>
-                                </form>
-                                <form method="post" action="{% url 'incrementar_contador' 2 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Compartir: {{ contadores.contador2 }}</button>
-                                </form>
-                            </section>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card">
+                    <div id ="imgre" class="card">
                         <div class="container py-3">
-                            <img src="{% static 'img/machupicchu.jpg'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
+                            <img id ="imgre" src="{% static 'img/mf.gif'%}" class="card-img-top" alt="Machu Picchu" width="350" height="250" style="border:5;">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Monte Fuji, Japón.</h5>
+                            <p class="card-text">
+                                El Monte Fuji, la montaña más alta de Japón, se eleva a 3,776 metros y destaca por su forma cónica. Considerado sagrado, ha inspirado la cultura y el arte japonés. Su cima nevada y vistas panorámicas atraen a escaladores y turistas, convirtiéndolo en un ícono natural emblemático.</p>
                             <div class="text-center">
-                                <a class="btn btn-secondary" href="https://earth.google.com/web/search/Machu+Picchu,+Per%c3%ba/@-13.16326361,-72.54514858,2448.26953125a,0d,60y,146.95800059h,77.38072601t,0r/data=CigiJgokCeFTHGQWoUxAEUbjw3WF7T1AGQC23kDpSFRAId28c1MBnyxAIhoKFkdnRm9NeloxV3RIOTA1ellQS2ZqUFEQAg" >
+                                <a class="btn btn-secondary" href="https://earth.google.com/web/search/monte+fuji/@35.36076122,138.72751385,3734.51996071a,0d,60y,212.50558992h,103.4538205t,0r/data=CnUaSxJFCiUweDYwMTk2MjlhNDJmZGM4OTk6MHhhNmExZmNjOTE2ZjNhNGRmGURN9PkorkFAIdbpm49GV2FAKgptb250ZSBmdWppGAEgASImCiQJWuxL5g_tJMAR-CtlDhLvJMAZIiyFUMptWkAhGsVge2RtWkAiGgoWWWpyR2RGWnRXR0lzcElLTExWYVhPdxACOgMKATA" >
                                 Vamos ahora
                                 </a>
                             </div>
-                            <section>
-                                <form method="post" action="{% url 'incrementar_contador' 1 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" style="background-image: url('{%static 'img/fondo.jpg' %}')" type="submit">Dar Me Gusta: {{ contadores.contador1 }} </button>
-                                </form>
-                                <form method="post" action="{% url 'incrementar_contador' 2 %}">
-                                {% csrf_token %}
-                                    <button class="btn btn-secondary" type="submit">Compartir: {{ contadores.contador2 }}</button>
-                                </form>
-                            </section>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </body>
+    </main>
+</body>
 {%endblock%}
