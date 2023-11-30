@@ -27,30 +27,31 @@
 <main class="container py-5">
     <section class="card card-body">
         <ul>
-            {% for noticia in noti %}
-            
-                <main class="container py-5">
-                    <section class="card card-body">
-                        <h1 class="text-center"><a class="text-center" href="{{noticia.url}}">{{noticia.titulo}}</a></h1>
-                        <p class="text-center">{{noticia.descripcion}}</p>
-                        <img src="{{noticia.url_img}}" class="center"/></a>
-                        <br>
-                        <p class="text-center">Publicado por {{noticia.usuario}}</p>
-                        <form class="text-center" action="{% url 'agregar_like' noticia.id user %}" method="post">
-                            {% csrf_token %}
-                            {% if user in noticia.laikeros %}
-                                <button>Dislike</button>
-                            {% else %}
-                                <button>like</button>
-                            {% endif %}
+            {% if flag == 1 %}
+                {% for noticia in noti %}
+                    <main class="container py-5">
+                        <section class="card card-body">
+                            <h1 class="text-center"><a class="text-center" href="{{noticia.url}}">{{noticia.titulo}}</a></h1>
+                            <p class="text-center">{{noticia.descripcion}}</p>
+                            <img src="{{noticia.url_img}}" class="center"/></a>
+                            <br>
+                            <p class="text-center">Publicado por {{noticia.usuario}}</p>
+                            <form class="text-center" action="{% url 'agregar_like' noticia.id user %}" method="post">
+                                {% csrf_token %}
+                                {% if user in noticia.laikeros %}
+                                    <button>Dislike</button>
+                                {% else %}
+                                    <button>like</button>
+                                {% endif %}
+                                <small>{{noticia.likes}}</small>
+                            </form>
+                        </section>
+                    </main>    
 
-                            
-                            <small>{{noticia.likes}}</small>
-                        </form>
-                    </section>
-                </main>    
-
-            {% endfor %}
+                 {% endfor %}
+            {% else %}
+            No hay noticias de la comunidad, ¿quieres publicar una? <a href="/inicio">Sube una noticia</a>
+            {% endif %}
         </ul>
     </section>
 </main>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.db import IntegrityError 
+from django.db import IntegrityError
 from django.db import OperationalError
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -188,7 +188,10 @@ def afectados(request):
 def comunidad(request):
     user = request.user
     noticias = Noticias.objects.all()
-    return render(request, 'comunidad.html',{'noti': noticias , 'user': user})
+    if noticias.exists():
+        return render(request, 'comunidad.html',{'noti': noticias , 'user': user, 'flag': 1})
+    else:
+        return render(request, 'comunidad.html',{'noti': noticias , 'user': user, 'flag': 0})
 
 @login_required
 def agregar_like(request, id, user):
@@ -211,7 +214,12 @@ def misnoticias(request):
     user = request.user
     try:
         post = Noticias.objects.filter(usuario=user).values()
-        return render(request, "misnoticias.html", {'post': post})
+        if post.exists():
+            return render(request, "misnoticias.html", {'post': post})
+        else:
+            return render(request, "misnoticias.html", {'post': "nohay", 'error': "* No has publicado una noticia aún."})
+    
+    
     except OperationalError:
         return render(request, "misnoticias.html", {'post': None, 'error': "* No has publicado una noticia aún."})
 
