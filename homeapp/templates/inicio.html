@@ -38,7 +38,13 @@
                 {% csrf_token %}
                 <p>Aquí podrás subir noticias relacionadas con el cambio climático para que sean publicadas en la pestaña Comunidad. Deben contener un título, descripción, enlace a la noticia y un enlace de la imagen a mostrar.</p>
                 {% if error %}
-                    {{error}}<br>
+                    <p class="fuente">{{error}}
+                        <style>
+                            .fuente{
+                                color: red
+                            }
+                        </style>
+                    <p><br>
                     <br>
                 {% endif %}
                 <div class="mb-3">

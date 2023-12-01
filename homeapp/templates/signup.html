@@ -10,7 +10,13 @@
         <div class="col-md-4 offset-md-4 mt-5">
             <form action="/signup/" method="POST" class="card card-body">
                 <h1 class="text-center" >Crea tu cuenta</h1>
-                {{error}}
+                <p class="fuente">{{error}}
+                    <style>
+                        .fuente{
+                            color: red
+                        }
+                    </style>
+                <p>
                 {% csrf_token %}
 
                 <div class="mb-3">

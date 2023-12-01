@@ -10,7 +10,13 @@
             <form action="/signin/" method="POST" class="card card-body">
                 <h1 class="text-center">Iniciar sesión</h1>
             
-                {{error}}
+                <p class="fuente">{{error}}
+                    <style>
+                        .fuente{
+                            color: red
+                        }
+                    </style>
+                <p>
                 {% csrf_token %}
             
                 <div class="mb-3">

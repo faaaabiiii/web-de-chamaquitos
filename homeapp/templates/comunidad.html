@@ -31,7 +31,7 @@
                 {% for noticia in noti %}
                     <main class="container py-5">
                         <section class="card card-body">
-                            <h1 class="text-center"><a class="text-center" href="{{noticia.url}}">{{noticia.titulo}}</a></h1>
+                            <h1 class="text-center"><a class="text-center" href="{{noticia.url}}" target="_blank" rel="noopener noreferrer">{{noticia.titulo}}</a></h1>
                             <p class="text-center">{{noticia.descripcion}}</p>
                             <img src="{{noticia.url_img}}" class="center"/></a>
                             <br>

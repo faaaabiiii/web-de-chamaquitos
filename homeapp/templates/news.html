@@ -19,10 +19,10 @@
             {% for noticia in noticias.articles %}
                 <main class="container py-5">
                     <section class="card card-body">
-                        <h2 class="text-center"><a class="text-center" href="{{noticia.url}}">{{noticia.title}}</a></h2>
+                        <h2 class="text-center"><a class="text-center" href="{{noticia.url}}" target="_blank" rel="noopener noreferrer">{{noticia.title}} </a></h2>
                         <p class="text-center"><b>Fuente de la noticia: {{noticia.source}}</b></p>
                         <br>
-                        <a class="text-center" href="{{noticia.url}}"><img src="{{noticia.thumbnail}}" class="center"/></a>
+                        <a class="text-center" href="{{noticia.url}}" target="_blank" rel="noopener noreferrer"><img src="{{noticia.thumbnail}}" class="center"/></a>
                     </section>
                 </main>
             {% endfor %}
