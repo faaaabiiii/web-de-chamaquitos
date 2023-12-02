@@ -20,7 +20,7 @@
 <br>
 <main class="container py-5">
     <section class="card card-body">
-        <h1>Noticias publicadas por la comunidad</h1>
+        <h1><u>Noticias publicadas por la comunidad</u></h1>
     </section>
 </main> 
 
@@ -35,15 +35,15 @@
                             <p class="text-center">{{noticia.descripcion}}</p>
                             <img src="{{noticia.url_img}}" class="center"/></a>
                             <br>
-                            <p class="text-center">Publicado por {{noticia.usuario}}</p>
+                            <p class="text-center">Publicado por <b>{{noticia.usuario}}</b></p>
                             <form class="text-center" action="{% url 'agregar_like' noticia.id user %}" method="post">
                                 {% csrf_token %}
                                 {% if user in noticia.laikeros %}
-                                    <button>Dislike</button>
+                                    <button><b>{{noticia.likes}}</b> No me gusta</button>
                                 {% else %}
-                                    <button>like</button>
+                                    <button><b>{{noticia.likes}}</b> Me gusta</button>
                                 {% endif %}
-                                <small>{{noticia.likes}}</small>
+                                <!-- <small>{{noticia.likes}}</small>-->
                             </form>
                         </section>
                     </main>    

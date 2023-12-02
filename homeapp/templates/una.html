@@ -14,7 +14,7 @@
         {% csrf_token %}
         {{form.as_p}}
         <button>
-            Update
+            Actualizar noticia
         </button>
     </form>
     <br>
@@ -22,7 +22,7 @@
     <form action="{% url 'delete' una.id %}" method="post">
         {% csrf_token %}
         <button>
-            Delete
+            Eliminar noticia
         </button>
     </form>
     
