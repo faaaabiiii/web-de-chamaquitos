@@ -13,7 +13,7 @@
     <form method="post">
         {% csrf_token %}
         {{form.as_p}}
-        <button>
+        <button style="background-color: chartreuse ; color: aliceblue;">
             Actualizar noticia
         </button>
     </form>
@@ -21,7 +21,7 @@
         
     <form action="{% url 'delete' una.id %}" method="post">
         {% csrf_token %}
-        <button>
+        <button style="background-color: brown; color: white">
             Eliminar noticia
         </button>
     </form>

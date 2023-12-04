@@ -12,10 +12,10 @@
         <p><b>Total de 'Me gusta' recibidos:</b> {{total_likes}}</p>
         {% if top.titulo != "" %}
             {% if top.interacciones > 1 %}
-            <p><b>Tu noticia con más interacciones:</b> <a href='/mipost/{{top.id}}/'> {{top.titulo}}</a>, {{top.interacciones}} interacciones.</p>
+            <p><b>Tu noticia con más interacciones:</b> <a href='/misnoticias/{{top.id}}/'> {{top.titulo}}</a>, {{top.interacciones}} interacciones.</p>
             {% else %}
                 {% if top.interacciones == 1 %}
-                <p><b>Tu noticia con más interacciones:</b> <a href='/mipost/{{top.id}}/'> {{top.titulo}}</a>, {{top.interacciones}} interacción.</p>
+                <p><b>Tu noticia con más interacciones:</b> <a href='/misnoticias/{{top.id}}/'> {{top.titulo}}</a>, {{top.interacciones}} interacción.</p>
                 {% endif %}
             {% endif %}
         {% else %}
